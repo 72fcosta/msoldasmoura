@@ -42,7 +42,6 @@ gulp.task("watch", function () {
     gulp.watch(["*.html", "_includes/**/*.html", "_layouts/*.html", "_config.yml", "_data/*.yml", "_posts/**/*"], ["jekyll-rebuild"]);
     gulp.watch(["_src/styl/global/*.styl"], ["global-styl"]);
     gulp.watch(["_src/styl/pages/*.styl"], ["pages-styl"]);
-    gulp.watch(["_src/styl/includes/*.styl"], ["includes-styl"]);
     gulp.watch(["_src/js/*.js"], ["global-js", "jekyll-rebuild"]);
     gulp.watch(["_src/img/**/*"], ["sync-img", "jekyll-rebuild"]);
 });
