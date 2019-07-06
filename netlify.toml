@@ -1,6 +1,6 @@
 [build.environment]
   YARN_VERSION = "1.6.0"
-  NODE_ENV = "8.9.4"
+  NODE_VERSION = "8.9.4"
 
 [build]
   publish = "_site/"
