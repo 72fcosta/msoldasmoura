@@ -220,37 +220,38 @@ gulp.task("watch", function () {
 
 //--------------------------------------------------------------
 
-//F6
-gulp.task("reconstruir", function(callback) {
-    runSequence(
-        "stylus",
-        "third-css",
-        "js",
-        "third-js",
-        "sync-favicon",
-        "sync-img",
-        "fonts",
-        "jekyll-build",
-        "min-css",
-        "browserSync-reload",
-        callback
-        );
-});
+gulp.task('watch', function () {
+    gulp.watch(["*.html", "_includes/**/*.html", "_layouts/*.html", "_config.yml", "_data/*.yml", "_posts/**/*"], ["jekyll-rebuild"])
+    gulp.watch(['_src/styl/global/*.styl'], ['global-styl'])
+    gulp.watch(['_src/styl/pages/*.styl'], ['pages-styl'])
+    gulp.watch(['_src/styl/includes/*.styl'], ['includes-styl'])
+    gulp.watch(['_src/js/*.js'], ['global-js', 'jekyll-rebuild'])
+    gulp.watch(['_src/img/**/*'], ['sync-img', 'jekyll-rebuild'])
+  })
 
-//F7
-gulp.task("deploy", function(callback) {
-    runSequence(
-        "jekyll-build",
-        "linode",
-        callback
-        );
-});
+  // --------------------------------------------------------------
 
-//F9
-gulp.task("letscode", function(callback) {
+  gulp.task("build", function(callback) {
     runSequence(
-        "browser-sync",
-        "watch",
+      'del-css',
+      "sync-favicon",
+      'sync-img',
+      'sync-sprite',
+      "global-styl",
+      "pages-styl",
+      "includes-styl",
+      "third-css",
+      'global-js',
+      "third-js",
+      "jekyll-rebuild",
+      callback
+      );
+    });
+
+    gulp.task('server', function (callback) {
+      runSequence(
+        'browser-sync',
+        'watch',
         callback
-        );
-});
+        )
+      })
