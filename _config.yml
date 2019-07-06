@@ -1,0 +1,29 @@
+# Site settings
+title: "Microsoldas Moura"
+description: "Soldas Especiais"
+madmimi: ""
+formspree: ""
+google_analytics: ""
+search_console: ""
+url: http://localhost:3000
+
+# User settings
+razao_social: ""
+
+email:
+endereco:
+facebook_user:
+
+# Build settings
+markdown: kramdown
+permalink: /:title/
+
+# html minify
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
+
+# exclude my node related stuff
+exclude: ['package.json', 'node_modules', '_site']

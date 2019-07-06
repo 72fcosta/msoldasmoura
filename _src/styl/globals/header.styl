@@ -1,0 +1,96 @@
+.header
+    position: fixed
+    top 0
+    width 100%
+    z-index 1000
+    background-color #f3f3f3
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,.25);
+    .header-inner
+        height nav-height
+        .logo
+            display flex
+            align-items center
+            float left
+            height nav-height
+            margin 0
+            a, img
+                display block
+            a
+                width logo-size
+                height nav-height
+                text-indent -9999px
+                background url("/assets/img/logo.png?v=101") no-repeat left center
+                background-size: logo-size
+        nav
+            float right
+            ul.nav-list > li > a:first-child
+                border-right 1px solid colors - 30%
+            ul.nav-list
+                list-style: none
+                margin: 0
+                padding: 0
+                li:last-child a
+                    border none
+                li
+                    float left
+                    position: relative
+                    height nav-height
+                    display flex
+                    align-items center
+                    a, a:visited
+                        display block
+                        padding 0 20px
+                        color colors - 30%
+                        text-decoration: none
+                        text-transform: uppercase
+                        font-size: 14px
+                        height: 20px
+                        &:hover
+                            color colorp
+                        &:not(:only-child)::after
+                            line-height: 20px
+                            font-size: 10px
+                            padding-left 4px
+                            content ' \25bc'
+
+.header
+    .header-inner
+        nav
+            div.nav-mobile
+                display none
+                position absolute
+                top 0
+                right 0
+                height nav-height
+                width nav-height
+                background-color: colorp
+                a#nav-toggle
+                    position absolute
+                    left 19px
+                    top 28px
+                    cursor pointer
+                    span,
+                    span:before,
+                    span:after
+                        cursor pointer
+                        border-radius 1px
+                        height 4px
+                        width 25px
+                        background white
+                        position absolute
+                        display block
+                        content ''
+                        transition all 300ms ease-in-out
+                    span:before
+                        top -7px
+                    span:after
+                        bottom -7px
+                    &.active span
+                        background-color transparent
+                        &:before,
+                        &:after
+                            top 0
+                        &:before
+                            transform rotate(45deg)
+                        &:after
+                            transform rotate(-45deg)
